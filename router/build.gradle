@@ -1,0 +1,19 @@
+import static dependencies.DependenciesKt.*
+
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+
+apply from: "${rootDir}/gradle/jetifier_shared.gradle"
+
+android {
+  compileSdkVersion COMPILE_SDK
+
+  defaultConfig {
+    minSdkVersion MIN_SDK
+  }
+}
+
+dependencies {
+  implementation KOTLIN
+}

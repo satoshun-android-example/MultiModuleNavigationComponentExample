@@ -1,0 +1,77 @@
+import static dependencies.DependenciesKt.*
+
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+
+apply from: "${rootDir}/gradle/jetifier_shared.gradle"
+
+android {
+  compileSdkVersion COMPILE_SDK
+
+  defaultConfig {
+    applicationId "com.github.satoshun.example"
+
+    minSdkVersion MIN_SDK
+    targetSdkVersion TARGET_SDK
+    versionCode 1
+    versionName "1.0"
+  }
+
+  buildTypes {
+    release {
+      minifyEnabled true
+      signingConfig signingConfigs.debug
+      proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+    }
+  }
+
+  signingConfigs {
+    debug {
+      storeFile rootProject.file('debug.keystore')
+      keyAlias 'androiddebugkey'
+      keyPassword 'android'
+      storePassword 'android'
+    }
+  }
+
+  compileOptions {
+    sourceCompatibility JavaVersion.VERSION_1_8
+    targetCompatibility JavaVersion.VERSION_1_8
+  }
+
+  dataBinding {
+    enabled = true
+  }
+}
+
+dependencies {
+  implementation project(':router')
+  implementation project(':main1')
+  implementation project(':sub1')
+
+  implementation KOTLIN
+  implementation APPCOMPAT
+  implementation KTX
+
+  implementation CONSTRAINTLAYOUT
+  implementation RECYCLERVIEW
+  implementation SWIPEREFRESHLAYOUT
+
+  implementation COROUTINE
+  implementation UI_COROUTINE
+
+  implementation ACTIVITYX
+  implementation FRAGMENTX
+
+  implementation DAGGER
+  kapt DAGGER_PROCESSOR
+  implementation DAGGER_ANDROID
+  kapt DAGGER_ANDROID_PROCESSOR
+  implementation DAGGER_ANDROID_SUPPORT
+
+  implementation NAVIGATION
+  implementation NAVIGATION_UI
+  implementation NAVIGATION_FRAGMENT
+  implementation NAVIGATION_RUNTIME
+}

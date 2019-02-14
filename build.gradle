@@ -1,0 +1,26 @@
+import static dependencies.DependenciesKt.*
+
+buildscript {
+  repositories {
+    google()
+    jcenter()
+  }
+
+  dependencies {
+    classpath ANDROID_PLUGIN
+    classpath KOTLIN_PLUGIN
+    classpath NAVIGATION_SAFEARGS_PLUGIN
+    classpath JETIFIER_PLUGIN
+  }
+}
+
+allprojects {
+  repositories {
+    google()
+    jcenter()
+  }
+}
+
+task clean(type: Delete) {
+  delete rootProject.buildDir
+}
