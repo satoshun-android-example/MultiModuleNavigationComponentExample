@@ -6,9 +6,19 @@
 
   <fragment
     android:id="@+id/nav_main_frag"
-    android:name="com.github.satoshun.example.feature.main.MainFragment" />
+    android:name="com.github.satoshun.example.feature.main.MainFragment">
+
+    <action
+      android:id="@+id/main_to_sub1"
+      app:destination="@id/nav_sub1_frag" />
+  </fragment>
 
   <fragment
     android:id="@+id/nav_sub1_frag"
-    android:name="com.github.satoshun.example.feature.sub1.Sub1Fragment" />
+    android:name="com.github.satoshun.example.feature.sub1.Sub1Fragment">
+
+    <action
+      android:id="@+id/sub1_to_main"
+      app:destination="@id/nav_main_frag" />
+  </fragment>
 </navigation>
