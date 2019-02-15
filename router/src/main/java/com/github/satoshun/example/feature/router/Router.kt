@@ -1,6 +1,5 @@
 package com.github.satoshun.example.feature.router
 
-import android.content.Context
 import androidx.navigation.NavController
 import com.github.satoshun.example.feature.main.MainFragmentDirections
 import com.github.satoshun.example.feature.main.MainModuleRouter
@@ -11,7 +10,7 @@ import javax.inject.Inject
 class MainModuleRouterImpl @Inject constructor(
   private val controller: NavController
 ) : MainModuleRouter {
-  override fun routeToSub1(context: Context) {
+  override fun routeToSub1() {
     controller.navigate(MainFragmentDirections.mainToSub1())
   }
 }
@@ -19,7 +18,7 @@ class MainModuleRouterImpl @Inject constructor(
 class Sub1ModuleRouterImpl @Inject constructor(
   private val controller: NavController
 ) : Sub1ModuleRouter {
-  override fun routeToMain(context: Context) {
+  override fun routeToMain() {
     controller.navigate(Sub1FragmentDirections.sub1ToMain())
   }
 }

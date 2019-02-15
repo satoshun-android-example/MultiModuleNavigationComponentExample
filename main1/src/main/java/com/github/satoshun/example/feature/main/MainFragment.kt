@@ -29,7 +29,7 @@ class MainFragment : Fragment() {
     super.onViewCreated(view, savedInstanceState)
 
     view.findViewById<View>(R.id.route).setOnClickListener {
-      moduleRouter.routeToSub1(requireContext())
+      moduleRouter.routeToSub1()
     }
   }
 }

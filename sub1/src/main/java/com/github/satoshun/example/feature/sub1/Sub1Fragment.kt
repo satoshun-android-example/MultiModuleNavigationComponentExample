@@ -30,7 +30,7 @@ class Sub1Fragment : Fragment(), Sub1Contract.View {
     super.onViewCreated(view, savedInstanceState)
 
     button.setOnClickListener {
-      moduleRouter.routeToMain(requireContext())
+      moduleRouter.routeToMain()
     }
   }
 }
