@@ -3,6 +3,7 @@ import static dependencies.DependenciesKt.*
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
+apply plugin: 'androidx.navigation.safeargs.kotlin'
 
 apply from: "${rootDir}/gradle/jetifier_shared.gradle"
 
@@ -15,5 +16,16 @@ android {
 }
 
 dependencies {
+  api project(':main1')
+  api project(':sub1')
+
   implementation KOTLIN
+
+  implementation DAGGER
+  kapt DAGGER_PROCESSOR
+
+  implementation NAVIGATION
+  implementation NAVIGATION_UI
+  implementation NAVIGATION_FRAGMENT
+  implementation NAVIGATION_RUNTIME
 }
